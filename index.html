@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>For Amora 💗</title>
+<style>
+:root{--bg:#fff0f5;--card:#ffffff;--text:#4a2338;--muted:#8a5a72;--accent:#e8457c;--accent2:#ffb3cf;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#1d0f17;--card:#2a1622;--text:#ffe6f0;--muted:#d9a3bb;--accent:#ff6b9d;--accent2:#6b2b45;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#1d0f17;--card:#2a1622;--text:#ffe6f0;--muted:#d9a3bb;--accent:#ff6b9d;--accent2:#6b2b45;color-scheme:dark}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font-family:Georgia,"Times New Roman",serif;text-align:center;overflow-x:hidden}
+section{max-width:560px;margin:0 auto;padding:48px 20px}
+h1{font-size:clamp(2rem,9vw,3.2rem);margin:.2em 0;color:var(--accent)}
+p{line-height:1.7;color:var(--muted);font-size:1.05rem}
+.card{background:var(--card);border-radius:20px;padding:24px;box-shadow:0 8px 30px rgba(232,69,124,.15);margin:20px 0}
+button{font:inherit;cursor:pointer;border:0;border-radius:999px;padding:12px 26px;background:var(--accent);color:#fff;font-size:1rem}
+button.alt{background:var(--accent2);color:var(--text)}
+.reasons{display:grid;gap:10px;margin-top:16px}
+.reason{background:var(--accent2);color:var(--text);border-radius:14px;padding:14px;cursor:pointer;min-height:48px}
+.heart{position:fixed;bottom:-30px;pointer-events:none;animation:rise linear forwards;z-index:5}
+@keyframes rise{to{transform:translateY(-110vh) rotate(25deg);opacity:0}}
+#answer{min-height:2.4em;color:var(--accent);font-size:1.2rem;margin-top:14px}
+.garden{display:flex;justify-content:center;align-items:flex-end;gap:6px;flex-wrap:wrap;margin-top:10px}
+.lily{position:relative;width:110px;height:230px;cursor:pointer;perspective:600px;animation:sway 4s ease-in-out infinite alternate;animation-delay:var(--d);transform-origin:50% 100%}
+.lily:nth-child(2){height:270px;width:130px}
+.stem{position:absolute;left:50%;bottom:0;width:6px;height:150px;margin-left:-3px;background:linear-gradient(#3f9d5a,#2a6e3f);border-radius:4px}
+.lily:nth-child(2) .stem{height:185px}
+.leaf{position:absolute;left:50%;bottom:40px;width:44px;height:18px;background:#3f9d5a;border-radius:0 100% 0 100%;transform:rotate(-25deg)}
+.head{position:absolute;left:50%;top:60px;width:0;height:0;transform-style:preserve-3d;transform:rotateX(38deg)}
+.lily:nth-child(2) .head{top:70px}
+.petal{position:absolute;left:-15px;top:-62px;width:30px;height:62px;transform-origin:50% 100%;border-radius:50% 50% 45% 45%/85% 85% 15% 15%;background:linear-gradient(to top,#ffd1e3,#ff8fb8 70%,#ff6b9d);box-shadow:inset 0 0 6px rgba(255,255,255,.5);transform:rotateZ(var(--a)) rotateX(-30deg)}
+.petal.inner{background:linear-gradient(to top,#fff0f6,#ffc2d9);height:52px;top:-52px}
+.go .petal{animation:bloom 1.8s cubic-bezier(.2,.8,.3,1) both}
+.dot{position:absolute;left:-5px;top:-5px;width:10px;height:10px;border-radius:50%;background:#ffd24a;box-shadow:0 0 6px #ffb300}
+@keyframes bloom{from{transform:rotateZ(var(--a)) rotateX(-88deg)}to{transform:rotateZ(var(--a)) rotateX(-30deg)}}
+@keyframes sway{from{transform:rotate(-3deg)}to{transform:rotate(3deg)}}
+</style>
+</head>
+<body>
+<section>
+  <p>✨ Hi my Trisha Reine Gamboa Adriano ✨</p>
+  <h1 id="title"></h1>
+  <button id="loveBtn">Tap this 💗</button>
+</section>
+
+<section>
+  <div class="card">
+    <h2 style="color:var(--accent)">My dear Princess</h2>
+    <p id="message"></p>
+  </div>
+</section>
+
+<section>
+  <p>Tap the lilies 👇</p>
+  <div class="garden" id="garden"></div>
+</section>
+
+<section>
+  <div class="card">
+    <h2 style="color:var(--accent)">That’s all my princess, I love you so so much my future wife! 💍💗</h2>
+  </div>
+  <p id="sign"></p>
+</section>
+
+<script>
+// ✏️ EDIT HERE
+const CONFIG = {
+  name: "Amora",
+  subtitle: "Para sa pinaka-special na tao sa buhay ko.",
+  message: "Thank you so so much for such an amazing girlfriend. I really appreciate everything that you do for me. I really promise to be more better for you and for us my love. Again, happy Reine’s day baby ko!! I love you so so so much!!",
+  from: "Your Miake"
+};
+
+document.getElementById("title").textContent = "Happy Reine’s Day!! 💗";
+document.getElementById("message").textContent = CONFIG.message;
+document.getElementById("sign").textContent = CONFIG.from;
+
+const garden = document.getElementById("garden");
+for (let k = 0; k < 3; k++) {
+  const l = document.createElement("div");
+  l.className = "lily go";
+  l.style.setProperty("--d", k * 0.6 + "s");
+  let petals = "";
+  for (let i = 0; i < 6; i++) petals += '<i class="petal" style="--a:' + (i * 60) + 'deg"></i>';
+  for (let i = 0; i < 6; i++) petals += '<i class="petal inner" style="--a:' + (i * 60 + 30) + 'deg"></i>';
+  l.innerHTML = '<div class="stem"></div><div class="leaf"></div><div class="head">' + petals + '<b class="dot"></b></div>';
+  l.onclick = () => { l.classList.remove("go"); void l.offsetWidth; l.classList.add("go"); burst(8); };
+  garden.appendChild(l);
+}
+
+function burst(n) {
+  const emojis = ["💗", "💖", "💕", "🌸", "✨"];
+  for (let i = 0; i < n; i++) {
+    const h = document.createElement("div");
+    h.className = "heart";
+    h.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+    h.style.left = Math.random() * 95 + "vw";
+    h.style.fontSize = 18 + Math.random() * 26 + "px";
+    h.style.animationDuration = 3 + Math.random() * 3 + "s";
+    document.body.appendChild(h);
+    setTimeout(() => h.remove(), 6500);
+  }
+}
+document.getElementById("loveBtn").onclick = () => burst(25);
+</script>
+</body>
+</html>
